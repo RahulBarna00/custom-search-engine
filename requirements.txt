@@ -1,0 +1,4 @@
+virtualenv
+pillow
+django
+nltk

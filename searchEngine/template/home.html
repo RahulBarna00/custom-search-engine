@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{%block title%}
+Custom Search Engine
+{%endblock%}
+
+{%block content%}
+    <form action="validate" method="POST">
+        {% csrf_token %}
+        <input type="text" name="user" placeholder="Enter">
+        <input type="submit" value="Submit">
+    </form>
+{%endblock%}
