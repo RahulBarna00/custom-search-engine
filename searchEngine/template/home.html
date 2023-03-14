@@ -1,13 +1,38 @@
-{% extends 'base.html' %}
+{% load static %}
 
-{%block title%}
-Custom Search Engine
-{%endblock%}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Search Bar</title>
+    <meta name="viewport" content="width=device-width, intial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
 
-{%block content%}
-    <form action="validate" method="POST">
+   <div class="container"> 
+    <form action="crawler" method="post">
         {% csrf_token %}
-        <input type="text" name="user" placeholder="Enter">
-        <input type="submit" value="Submit">
+        <input type="submit" value="Crawler" class="btn1">
     </form>
-{%endblock%}
+    
+    <form action="validate" method="post">
+        {% csrf_token %}
+        <div class="search">
+            <div class="icon"></div>
+            <div class="input">
+            <input type="text" name="user" id="mysearch" required/>
+        </div>
+        
+        <script>
+            const icon = document.querySelector('.icon');
+            const search = document.querySelector('.search');
+            icon.onclick = function(){
+                search.classList.toggle('active')
+            }
+        </script>
+    </form>
+</div>
+
+</body>
+</html>

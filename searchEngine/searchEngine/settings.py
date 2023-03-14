@@ -1,3 +1,4 @@
+import os
 """
 Django settings for searchEngine project.
 
@@ -25,7 +26,7 @@ SECRET_KEY = 'django-insecure-)r_hu=bbk@7fhv5qal&5_-m44rmx$iky^v1_tz%cb5ona*=m0f
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -116,8 +117,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATICFILES_DIR = [BASE_DIR/'static']
-STATIC_URL = 'static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static/')
+]
+
+STATIC_URL = '/static/'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR/'media'

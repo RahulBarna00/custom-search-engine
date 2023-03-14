@@ -7,6 +7,9 @@ from .tokenizing import *
 class HomeView(TemplateView):
     template_name = "home.html"
 
+class crawlerView(TemplateView):
+    template_name = "crawler.html"
+
 def validate(request):
     if request.method == 'POST':
         username = request.POST["user"]
@@ -16,3 +19,6 @@ def validate(request):
         }
         
         return render(request,'result.html',dict)
+
+def crawler(request):
+    return render(request,'crawler.html')
